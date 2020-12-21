@@ -15,5 +15,4 @@ input {
 #chassis[type="checkbox"]:checked ~ .container .jet__chassis--right {
     transform: translate(-50%, 25px) rotateY(90deg);
     color: red;
-    outline: 2px dashed red;
 }
