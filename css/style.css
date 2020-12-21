@@ -1,3 +1,5 @@
+@import url('./controls.css');
+
 *,
 ::before,
 ::after {
@@ -6,10 +8,11 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
     height: 100%;
-    font-family: Geometria;
+    font-family: Geometria, sans-serif;
     background-color: #2c7580;
     color: #ccc;
     user-select: none;
@@ -17,9 +20,8 @@ body {
     background-image: url("../img/bg.jpg");
     background-size: cover;
     background-repeat: repeat-x;
-
     animation-name: scroll;
-    animation-duration: 60s;
+    animation-duration: 160s;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
 }
@@ -30,13 +32,14 @@ body {
 
     }
     100% {
-        background-position: -2000px center;
+        background-position: -12000px center;
     }
 }
 
 
 h1 {
-    position: fixed;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .container {
@@ -49,7 +52,7 @@ h1 {
 
     width: 100px;
     height: 100px;
-    padding: 0 500px;
+    padding: 0 50vw;
     perspective: 500px;
 
     transform: translateX(0);
@@ -72,13 +75,13 @@ h1 {
     }
 }
 
-.box {
+.jet {
     width: inherit;
     height: inherit;
     line-height: 100px;
     transform-style: preserve-3d;
     transform: rotateY(90deg) rotateX(12deg) rotateZ(-20deg);
-    animation-name: box-rotate;
+    /*animation-name: box-rotate;*/
     animation-duration: 15s;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
@@ -98,63 +101,68 @@ h1 {
     }
 }
 
-.box__wing,
-.box__side {
+.jet__wing,
+.jet__side {
     position: absolute;
     width: 100px;
     height: 50px;
     text-align: center;
     line-height: inherit;
-    background: coral;
+    background: linear-gradient(45deg, black, gray);
     border: 1px solid black;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    animation-name: gradient;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
 }
 
-/* -------- перед - зад */
-.box__side--front {
+
+/* ---------------- перед - зад */
+.jet__side--front {
     /*width: 100px;*/
     color: red;
     transform: translateZ(50px);
 }
 
-.box__side--back {
+.jet__side--back {
     /*width: 100px;*/
     color: red;
     transform: translateZ(-150px) rotateY(-180deg);
 }
 
-/* -------- лево - право */
-.box__side--left,
-.box__side--right {
+/* ---------------- лево - право */
+.jet__side--left,
+.jet__side--right {
     width: 200px;
     color: blue;
     font-size: 100px;
     text-shadow: 0 0 5px black;
 }
 
-.box__side--left {
+.jet__side--left {
     transform: rotateY(-90deg) rotateX(0deg)  translateX(-50px) translateZ(100px);
 }
 
-.box__side--right {
+.jet__side--right {
     transform: rotateY(90deg) translateX(50px) translateZ(0px);
 }
 
-/* -------- верх - низ */
-.box__side--top,
-.box__side--bottom {
+/* ---------------- верх - низ */
+.jet__side--top,
+.jet__side--bottom {
     height: 200px;
 }
 
 
-.box__side--top {
+.jet__side--top {
     transform: translateZ(-50px) translateY(-100px) rotateX(90deg);;
 }
 
-.box__side--bottom {
+.jet__side--bottom {
     transform:
         translateZ(-50px)
         translateY(-50px)
@@ -162,37 +170,144 @@ h1 {
 }
 
 
-/* -------- крылья */
-.box__wing {
+/* ---------------- крылья */
+.jet__wing {
     width: 150px;
     color: red;
 }
 
-.box__wing--left {
+.jet__wing--left {
     transform: rotateX(90deg) translateY(-50px) translateX(-150px) translateZ(25px);
     border-bottom-left-radius: 50%;
     border-top-right-radius: 10%;
 }
 
-.box__wing--right {
+.jet__wing--right {
     transform: rotateX(90deg) translateY(-50px) translateX(100px) translateZ(25px);
     border-bottom-right-radius: 50%;
     border-top-left-radius: 10%;
 }
 
-/* -------- хвост */
-.box__tail {
+.jet__wing::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 15px;
+    border: inherit;
+    background-image: inherit;
+}
+
+.jet__wing--left::after {
+    left: 40px;
+}
+.jet__wing--right::after {
+    right: 40px;
+}
+
+/* маячки */
+.jet__wing::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: gold;
+    animation-name: light;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes light {
+    0% {
+        background-color: gold;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: gold;
+    }
+}
+
+.jet__wing--left::before {
+    left: 3px;
+}
+
+.jet__wing--right::before {
+    right: 3px;
+}
+
+/* ---------------- хвост */
+.jet__tail {
+    width: 60px;
+    padding: 10px;
+    justify-content: end;
     transform:
             rotateX(0deg)
             rotateY(-90deg)
             translateY(-50px)
             translateX(-125px)
-            translateZ(0px);
+            translateZ(-20px);
     border-top-right-radius: 100%;
 }
 
-/* ----------- декор */
-.box__side--front::before {
+.jet__tail::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    width: 20px;
+    height: 100%;
+    border: inherit;
+    background-image: inherit;
+    transform-origin: right;
+}
+
+/* ------------------- шасси */
+.jet__chassis {
+    position: absolute;
+    width : 25px;
+    height : 25px;
+    background: linear-gradient(120deg, red, black);
+    border-radius: 50%;
+    border: 5px groove gray;
+    transition: 1s;
+}
+
+.jet__chassis--front {
+    left: 50%;
+    transform: translate(-50%, 50px) rotateX(30deg) rotateY(90deg);
+}
+
+.jet__chassis--left {
+    left: 25%;
+    transform: translateX(-50%) translateY(55px) translateZ(-100px) rotateY(90deg);
+}
+
+.jet__chassis--right {
+    left: 75%;
+    transform: translateX(-50%) translateY(55px) translateZ(-100px) rotateY(90deg);
+}
+
+.jet__chassis::before {
+    content    : "";
+    position   : absolute;
+    top        : -100%;
+    right      : 0;
+    bottom     : 0;
+    left       : 0;
+    margin     : auto;
+    width      : 3px;
+    height     : 20px;
+    background : rgb(37, 35, 35);
+}
+
+
+/* ------------------- декор */
+.jet__side--front::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -200,8 +315,8 @@ h1 {
     background: blue;
 }
 
-.box__side--left::before,
-.box__side--right::before {
+.jet__side--left::before,
+.jet__side--right::before {
     content: "";
     position: absolute;
     width: 10%;
@@ -209,12 +324,14 @@ h1 {
     background: blue;
 }
 
-.box__side--left::before {
+.jet__side--left::before {
     right: 0;
+    border-top-left-radius: 10px;
 }
 
-.box__side--right::before {
+.jet__side--right::before {
     left: 0;
+    border-top-right-radius: 10px;
 }
 
 

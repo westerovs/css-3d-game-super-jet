@@ -2,33 +2,71 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="меню">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <title>3d - самолет</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="#" type="image/x-icon">
+  <title>3d - самолет</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<h1>SUPER JET</h1>
+
+    <label for="chassis">Шасси
+    </label>
+    <input id="chassis" type="checkbox">
+
+    <h1>SUPER JET</h1>
 
     <div class="container">
-        <div class="box">
-            <div class="box__side box__side--left">····</div>
-            <div class="box__side box__side--right">····</div>
-            <div class="box__side box__side--back"></div>
-            <div class="box__side box__side--front"></div>
-            <div class="box__side box__side--top"></div>
-            <div class="box__side box__side--bottom"></div>
+      <div class="jet">
+        <div class="jet__side jet__side--left">····</div>
+        <div class="jet__side jet__side--right">····</div>
+        <div class="jet__side jet__side--back"></div>
+        <div class="jet__side jet__side--front"></div>
+        <div class="jet__side jet__side--top"></div>
+        <div class="jet__side jet__side--bottom"></div>
 
-            <div class="box__side box__tail">X</div>
+        <div class="jet__side jet__tail">X</div>
 
-            <div class="box__wing box__wing--left ">&#9733</div>
-            <div class="box__wing box__wing--right ">&#9733</div>
-        </div>
+        <div class="jet__wing jet__wing--left">&#9733</div>
+        <div class="jet__wing jet__wing--right">&#9733</div>
+
+        <div class="jet__chassis jet__chassis--front"></div>
+        <div class="jet__chassis jet__chassis--left"></div>
+        <div class="jet__chassis jet__chassis--right"></div>
+
+
+      </div>
     </div>
+
+
+  <script>
+    const box = document.querySelector('.jet');
+    let rotateY = 80;
+    let rotateX = 10;
+    let rotateZ = 10;
+
+    (function () {
+      box.style.transform =
+        `rotateY(${+rotateY}deg) rotateX(${+rotateX}deg) `
+
+      document.onkeydown = function (item) {
+        if (item.keyCode === 37) rotateZ -= 2;     // влево
+        else if (item.keyCode === 39) rotateZ += 2; // вправо
+        else if (item.keyCode === 38) rotateX += 2; // вверх
+        else if (item.keyCode === 40) rotateX -= 2; // вниз
+
+        box.style.transform =
+          `rotateY(${+rotateY}deg)
+             rotateX(${+rotateX}deg)
+             rotateZ(${+rotateZ}deg)
+             `
+      };
+    })();
+
+
+  </script>
 
 </body>
 
