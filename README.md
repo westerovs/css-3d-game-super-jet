@@ -3,4 +3,4 @@
 #RUN: 
 https://westerovs.github.io/css-3d-game-super-jet/
 <br>
-<img src="cover.png">
+<img src="cover1.png">
