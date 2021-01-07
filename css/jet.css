@@ -1,0 +1,255 @@
+:root {
+    --jetWidth: 100px;
+    --jetHeight: 100px;
+}
+
+.jet {
+    outline: 2px dashed red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -50%;
+    margin: auto;
+
+    width: var(--jetWidth);
+    height: var(--jetHeight);
+    perspective: 500px;
+
+    transform: translateX(0);
+
+    /*animation-name: jet;*/
+    animation-duration: 60s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.jet__body {
+    width: inherit;
+    height: inherit;
+    transform-style: preserve-3d;
+    transform: rotateY(90deg) rotateX(12deg) rotateZ(-20deg);
+    animation-duration: 15s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.jet__wing,
+.jet__tail,
+.jet__side {
+    position: absolute;
+    width: var(--jetWidth);
+    height: 50px;
+    text-align: center;
+    line-height: inherit;
+    background: linear-gradient(45deg, black, gray);
+    border: 1px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ---------------- перед - зад */
+.jet__side--front {
+    transform: translateZ(50px);
+}
+
+.jet__side--back {
+    transform: translateZ(-150px) rotateY(-180deg);
+}
+
+.jet__side--front::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height : 20px;
+    background: blue;
+}
+
+/* ---------------- лево - право */
+.jet__side--left,
+.jet__side--right {
+    width: 200px;
+    color: blue;
+    font-size: 100px;
+    text-shadow: 0 0 5px black;
+}
+
+.jet__side--left {
+    transform: rotateY(-90deg) rotateX(0deg)  translateX(-50px) translateZ(100px);
+}
+
+.jet__side--right {
+    transform: rotateY(90deg) translateX(50px) translateZ(0px);
+}
+
+.jet__side--left::before,
+.jet__side--right::before {
+    content: "";
+    position: absolute;
+    width: 10%;
+    height : 20px;
+    background: blue;
+}
+
+.jet__side--left::before {
+    right: 0;
+    border-top-left-radius: 10px;
+}
+
+.jet__side--right::before {
+    left: 0;
+    border-top-right-radius: 10px;
+}
+
+/* ---------------- верх - низ */
+.jet__side--top,
+.jet__side--bottom {
+    height: 200px;
+}
+
+.jet__side--top {
+    transform: translateZ(-50px) translateY(-100px) rotateX(90deg);
+}
+
+.jet__side--bottom {
+    transform : translateZ(-50px) translateY(-50px) rotateX(-90deg);
+}
+
+/* ---------------- крылья */
+.jet__wing {
+    width: 150px;
+    color: red;
+}
+
+.jet__wing--left {
+    transform: rotateX(90deg) translateY(-50px) translateX(-150px) translateZ(25px);
+    border-bottom-left-radius: 50%;
+    border-top-right-radius: 10%;
+}
+
+.jet__wing--right {
+    transform: rotateX(90deg) translateY(-50px) translateX(100px) translateZ(25px);
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 10%;
+}
+
+.jet__wing::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 15px;
+    border: inherit;
+    background-image: inherit;
+}
+
+.jet__wing--left::after {
+    left: 40px;
+}
+.jet__wing--right::after {
+    right: 40px;
+}
+
+/* маячки */
+.jet__wing::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: gold;
+    animation-name: light;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes light {
+    0% {
+        background-color: gold;
+    }
+    50% {
+        background-color: red;
+    }
+    100% {
+        background-color: gold;
+    }
+}
+
+.jet__wing--left::before {
+    left: 3px;
+}
+
+.jet__wing--right::before {
+    right: 3px;
+}
+
+/* ---------------- хвост */
+.jet__tail {
+    width: 60px;
+    padding: 10px;
+    justify-content: end;
+    transform:
+            rotateX(0deg)
+            rotateY(-90deg)
+            translateY(-50px)
+            translateX(-125px)
+            translateZ(-20px);
+    border-top-right-radius: 100%;
+}
+
+.jet__tail::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    width: 20px;
+    height: 100%;
+    border: inherit;
+    background-image: inherit;
+    transform-origin: right;
+}
+
+/* ------------------- шасси */
+.jet__chassis {
+    position: absolute;
+    width : 25px;
+    height : 25px;
+    background: linear-gradient(120deg, red, black);
+    border-radius: 50%;
+    border: 5px groove gray;
+    transition: 1s;
+}
+
+.jet__chassis--front {
+    left: 50%;
+    transform: translate(-50%, 50px) rotateX(30deg) rotateY(90deg);
+}
+
+.jet__chassis--left {
+    left: 25%;
+    transform: translateX(-50%) translateY(55px) translateZ(-100px) rotateY(90deg);
+}
+
+.jet__chassis--right {
+    left: 75%;
+    transform: translateX(-50%) translateY(55px) translateZ(-100px) rotateY(90deg);
+}
+
+.jet__chassis::before {
+    content    : "";
+    position   : absolute;
+    top        : -100%;
+    right      : 0;
+    bottom     : 0;
+    left       : 0;
+    margin     : auto;
+    width      : 3px;
+    height     : 20px;
+    background : rgb(37, 35, 35);
+}
+
