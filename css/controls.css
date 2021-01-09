@@ -17,9 +17,9 @@ input {
 }
 
 /* шасси */
-#chassis[type="checkbox"]:checked ~ .jet .jet__chassis--front,
-#chassis[type="checkbox"]:checked ~ .jet .jet__chassis--left,
-#chassis[type="checkbox"]:checked ~ .jet .jet__chassis--right {
+#chassis[type="checkbox"]:checked ~ .jet .jet__side_chassis--front,
+#chassis[type="checkbox"]:checked ~ .jet .jet__side_chassis--left,
+#chassis[type="checkbox"]:checked ~ .jet .jet__side_chassis--right {
     transform: translate(-50%, 25px) rotateY(90deg);
     color: red;
 }

@@ -83,15 +83,33 @@ h1 {
     font-size: 5vw;
     transition: 1s;
     z-index: 2;
+
+    animation-name: start;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes start {
+    0% {
+        color: gold;
+    }
+    50% {
+        color: black;
+    }
+    100% {
+        color: gold;
+    }
 }
 
 .start-screen:hover {
-    color: gold;
+    text-shadow: 10px 10px 10px black;
 }
 
 .sound {
     position : absolute;
     top: 50px;
+    left: 10px;
     opacity: 0.2;
     transition: 0.2s;
 }
