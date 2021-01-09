@@ -9,16 +9,33 @@
     box-sizing: border-box;
 }
 
+/*безопасное скрытие элемента*/
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+
 body {
     display: flex;
     height: 100vh;
     background-color: black;
+    font-family: Geometria, sans-serif;
     color: #ccc;
+    user-select: none;
+    overflow: hidden;
 }
 
 h1 {
-    margin: 0 auto;
+    margin: 50px auto;
     text-align: center;
+    color: gold;
 }
 
 .wrapper {
@@ -30,8 +47,7 @@ h1 {
     background-size: cover;
     background-position: left center;
     background-repeat: repeat-x;
-    font-family: Geometria, sans-serif;
-    user-select: none;
+    overflow: hidden;
 
     animation-name: scrollBg;
     animation-duration: 5s;
@@ -49,5 +65,37 @@ h1 {
     }
 }
 
+.start-screen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    background-color: black;
+    background-image: url("../img/start-screen.JPG");
+    background-size: cover;
+    background-position: left center;
+    background-repeat: repeat-x;
+    color: black;
 
+    font-size: 5vw;
+    transition: 1s;
+    z-index: 2;
+}
+
+.start-screen:hover {
+    color: gold;
+}
+
+.sound {
+    position : absolute;
+    top: 50px;
+    opacity: 0.2;
+    transition: 0.2s;
+}
+
+.sound:hover {
+    opacity: 1;
+}

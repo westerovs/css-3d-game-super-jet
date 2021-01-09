@@ -10,9 +10,26 @@ input {
     cursor: pointer;
 }
 
-#chassis[type="checkbox"]:checked ~ .container .jet__chassis--front,
-#chassis[type="checkbox"]:checked ~ .container .jet__chassis--left,
-#chassis[type="checkbox"]:checked ~ .container .jet__chassis--right {
+/* начать игру */
+#start[type="checkbox"]:checked + .start-screen {
+    opacity: 0;
+    transform: translateX(100vw);
+}
+
+/* шасси */
+#chassis[type="checkbox"]:checked ~ .jet .jet__chassis--front,
+#chassis[type="checkbox"]:checked ~ .jet .jet__chassis--left,
+#chassis[type="checkbox"]:checked ~ .jet .jet__chassis--right {
     transform: translate(-50%, 25px) rotateY(90deg);
     color: red;
+}
+
+/* бочка */
+#barrel[type="checkbox"]:checked ~ .jet .jet__body {
+    transform: rotateY(78deg) rotateX(14deg) rotateZ(345deg);
+}
+
+/* петля*/
+#loop[type="checkbox"]:checked ~ .jet .jet__body {
+    transform: rotateY(78deg) rotateX(380deg) rotateZ(-15deg);
 }

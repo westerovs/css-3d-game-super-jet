@@ -4,7 +4,6 @@
 }
 
 .jet {
-    outline: 2px dashed red;
     position: absolute;
     top: 0;
     right: 0;
@@ -17,21 +16,17 @@
     perspective: 500px;
 
     transform: translateX(0);
-
-    /*animation-name: jet;*/
-    animation-duration: 60s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
 }
 
 .jet__body {
     width: inherit;
     height: inherit;
     transform-style: preserve-3d;
-    transform: rotateY(90deg) rotateX(12deg) rotateZ(-20deg);
+    transform: rotateY(78deg) rotateX(14deg) rotateZ(-15deg);
     animation-duration: 15s;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
+    transition: 1s;
 }
 
 .jet__wing,

@@ -10,64 +10,51 @@
 </head>
 
 <body>
+
+
+<input id="start" class="visually-hidden" type="checkbox">
+<label for="start" class="start-screen">START GAME</label>
+
 <div class="wrapper">
+  <audio src="calambur.mp3" controls loop class="sound" tabindex="0">PLAY</audio>
 
-    <label for="chassis">Убрать шасси</label>
-    <input id="chassis" type="checkbox">
+  <label for="chassis">Шасси</label>
+  <input id="chassis" type="checkbox">
 
-    <h1>SUPER JET</h1>
+  <label for="barrel">Бочка</label>
+  <input id="barrel" type="checkbox">
 
-    <div class="jet">
-      <div class="jet__body">
-        <!-- стороны -->
-        <div class="jet__side jet__side--left">····</div>
-        <div class="jet__side jet__side--right">····</div>
-        <div class="jet__side jet__side--back"></div>
-        <div class="jet__side jet__side--front"></div>
-        <div class="jet__side jet__side--top"></div>
-        <div class="jet__side jet__side--bottom"></div>
+  <label for="loop">Петля</label>
+  <input id="loop" type="checkbox">
 
-        <!-- хвост -->
-        <div class="jet__tail">X</div>
+  <h1>3D AVIATOR only HTML & CSS</h1>
 
-        <!-- крылья -->
-        <div class="jet__wing jet__wing--left">&#9733</div>
-        <div class="jet__wing jet__wing--right">&#9733</div>
+  <div class="jet">
+    <div class="jet__body">
+      <!-- стороны -->
+      <div class="jet__side jet__side--left">····</div>
+      <div class="jet__side jet__side--right">····</div>
+      <div class="jet__side jet__side--back"></div>
+      <div class="jet__side jet__side--front"></div>
+      <div class="jet__side jet__side--top"></div>
+      <div class="jet__side jet__side--bottom"></div>
 
-        <!-- шасси -->
-        <div class="jet__chassis jet__chassis--front"></div>
-        <div class="jet__chassis jet__chassis--left"></div>
-        <div class="jet__chassis jet__chassis--right"></div>
-      </div>
+      <!-- хвост -->
+      <div class="jet__tail">X</div>
+
+      <!-- крылья -->
+      <div class="jet__wing jet__wing--left">&#9733;</div>
+      <div class="jet__wing jet__wing--right">&#9733;</div>
+
+      <!-- шасси -->
+      <div class="jet__chassis jet__chassis--front"></div>
+      <div class="jet__chassis jet__chassis--left"></div>
+      <div class="jet__chassis jet__chassis--right"></div>
     </div>
+  </div>
 </div>
 
-  <script>
-    const box = document.querySelector('.jet__body');
-    let rotateY = 80;
-    let rotateX = 10;
-    let rotateZ = 10;
-
-    (function () {
-      box.style.transform =
-        `rotateY(${+rotateY}deg) rotateX(${+rotateX}deg) `
-
-      document.onkeydown = function (item) {
-        if (item.keyCode === 37) rotateZ -= 2;     // влево
-        else if (item.keyCode === 39) rotateZ += 2; // вправо
-        else if (item.keyCode === 38) rotateX += 2; // вверх
-        else if (item.keyCode === 40) rotateX -= 2; // вниз
-
-        box.style.transform =
-          `rotateY(${+rotateY}deg)
-             rotateX(${+rotateX}deg)
-             rotateZ(${+rotateZ}deg)
-             `
-      };
-    })();
-
-
-  </script>
+<script src="js/index.js"></script>
 </body>
 
 </html>
