@@ -243,3 +243,13 @@
     background : rgb(37, 35, 35);
 }
 
+/* fire */
+.jet__rocket {
+    outline: 2px dashed red;
+    top: 50px;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: red;
+    transition: 0s;
+}
