@@ -245,7 +245,6 @@
 
 /* fire */
 .jet__rocket {
-    outline: 2px dashed red;
     top: 50px;
     position: absolute;
     width: 5px;
