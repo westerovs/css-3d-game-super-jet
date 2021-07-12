@@ -23,6 +23,7 @@
     height: inherit;
     transform-style: preserve-3d;
     transform: rotateY(78deg) rotateX(14deg) rotateZ(-15deg);
+    transition: 1s;
 }
 
 .jet__side {

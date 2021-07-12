@@ -16,24 +16,6 @@ input {
     transform: translateX(100vw);
 }
 
-/* шасси */
-#chassis[type="checkbox"]:checked ~ .jet .jet__side_chassis--front,
-#chassis[type="checkbox"]:checked ~ .jet .jet__side_chassis--left,
-#chassis[type="checkbox"]:checked ~ .jet .jet__side_chassis--right {
-    transform: translate(-50%, 25px) rotateY(90deg);
-    color: red;
-}
-
-/* бочка */
-#barrel[type="checkbox"]:checked ~ .jet .jet__body {
-    transform: rotateY(78deg) rotateX(14deg) rotateZ(345deg);
-}
-
-/* петля*/
-#loop[type="checkbox"]:checked ~ .jet .jet__body {
-    transform: rotateY(78deg) rotateX(380deg) rotateZ(-15deg);
-}
-
 /* fire*/
 #fire[type="checkbox"]:checked ~ .jet .jet__side_wing .jet__rocket{
     transform: translateY(100vw);
